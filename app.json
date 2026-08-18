@@ -1,0 +1,43 @@
+{
+  "expo": {
+    "name": "City Compass",
+    "slug": "city-compass",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "light",
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.citycompass.app"
+    },
+    "android": {
+      "package": "com.citycompass.app",
+      "adaptiveIcon": {
+        "backgroundColor": "#E6F4FE",
+        "foregroundImage": "./assets/android-icon-foreground.png",
+        "backgroundImage": "./assets/android-icon-background.png",
+        "monochromeImage": "./assets/android-icon-monochrome.png"
+      },
+      "predictiveBackGestureEnabled": false
+    },
+    "plugins": [
+      [
+        "expo-location",
+        {
+          "locationWhenInUsePermission": "City Compass uses your location to show nearby venues and alert you when you are within 5 m of one."
+        }
+      ],
+      "expo-dev-client",
+      "expo-font",
+      [
+        "expo-camera",
+        {
+          "cameraPermission": "City Compass uses your camera to scan venue QR codes and stamp your passport."
+        }
+      ]
+    ],
+    "web": {
+      "favicon": "./assets/favicon.png"
+    }
+  }
+}

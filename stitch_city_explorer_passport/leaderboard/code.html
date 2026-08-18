@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>City Ranks - Leaderboard</title>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@700;800&amp;family=Work+Sans:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "primary-container": "#1a2b48",
+                        "outline-variant": "#c5c6ce",
+                        "on-error": "#ffffff",
+                        "tertiary-container": "#282c2e",
+                        "on-primary-container": "#8293b5",
+                        "on-secondary-container": "#5d1900",
+                        "secondary-container": "#fe6a34",
+                        "on-surface": "#111c2c",
+                        "on-background": "#111c2c",
+                        "on-secondary": "#ffffff",
+                        "surface-container-high": "#dee8ff",
+                        "error-container": "#ffdad6",
+                        "on-primary-fixed": "#081b38",
+                        "on-secondary-fixed-variant": "#832600",
+                        "on-secondary-fixed": "#390c00",
+                        "surface-container-low": "#f0f3ff",
+                        "background": "#f9f9ff",
+                        "surface-dim": "#cfdaf1",
+                        "primary": "#031632",
+                        "tertiary-fixed-dim": "#c4c7c9",
+                        "surface-variant": "#d8e3fa",
+                        "primary-fixed-dim": "#b6c7eb",
+                        "outline": "#75777e",
+                        "secondary": "#ab3500",
+                        "error": "#ba1a1a",
+                        "secondary-fixed-dim": "#ffb59d",
+                        "surface-container": "#e7eeff",
+                        "surface-tint": "#4e5f7e",
+                        "surface-container-lowest": "#ffffff",
+                        "on-error-container": "#93000a",
+                        "tertiary": "#141719",
+                        "on-surface-variant": "#44474d",
+                        "on-tertiary-fixed": "#191c1e",
+                        "on-tertiary-fixed-variant": "#444749",
+                        "inverse-primary": "#b6c7eb",
+                        "on-tertiary": "#ffffff",
+                        "on-primary-fixed-variant": "#374765",
+                        "surface-container-highest": "#d8e3fa",
+                        "surface": "#f9f9ff",
+                        "inverse-surface": "#263142",
+                        "inverse-on-surface": "#ebf1ff",
+                        "on-primary": "#ffffff",
+                        "on-tertiary-container": "#909395",
+                        "primary-fixed": "#d7e2ff",
+                        "surface-bright": "#f9f9ff",
+                        "tertiary-fixed": "#e0e3e5",
+                        "secondary-fixed": "#ffdbd0"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "xl": "32px",
+                        "sm": "8px",
+                        "md": "16px",
+                        "base": "4px",
+                        "lg": "24px",
+                        "gutter": "16px",
+                        "xs": "4px",
+                        "container-padding": "20px"
+                    },
+                    "fontFamily": {
+                        "headline-md": ["Plus Jakarta Sans"],
+                        "headline-lg": ["Plus Jakarta Sans"],
+                        "label-bold": ["Work Sans"],
+                        "headline-sm": ["Plus Jakarta Sans"],
+                        "headline-xl": ["Plus Jakarta Sans"],
+                        "label-md": ["Work Sans"],
+                        "body-lg": ["Work Sans"],
+                        "body-sm": ["Work Sans"],
+                        "body-md": ["Work Sans"]
+                    },
+                    "fontSize": {
+                        "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "700" }],
+                        "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+                        "label-bold": ["12px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "700" }],
+                        "headline-sm": ["20px", { "lineHeight": "28px", "fontWeight": "700" }],
+                        "headline-xl": ["40px", { "lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "800" }],
+                        "label-md": ["12px", { "lineHeight": "16px", "fontWeight": "500" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "body-sm": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .material-symbols-outlined[data-weight="fill"] {
+            font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        
+        /* Ambient shadow for cards */
+        .ambient-shadow {
+            box-shadow: 0 4px 12px rgba(3, 22, 50, 0.12);
+        }
+        
+        /* Floating shadow */
+        .floating-shadow {
+            box-shadow: 0 8px 24px rgba(3, 22, 50, 0.20);
+        }
+        
+        /* Medal Colors */
+        .gold-medal { color: #FFD700; }
+        .silver-medal { color: #C0C0C0; }
+        .bronze-medal { color: #CD7F32; }
+
+        /* Hide scrollbar for clean list */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background min-h-screen flex flex-col font-body-md selection:bg-secondary-container selection:text-on-secondary-container">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-surface shadow-sm">
+<div class="flex justify-between items-center px-gutter h-16 w-full max-w-md mx-auto">
+<button aria-label="Menu" class="text-primary hover:opacity-80 active:scale-95 transition-transform duration-200 flex items-center justify-center w-10 h-10 rounded-full">
+<span class="material-symbols-outlined text-2xl" data-icon="map">map</span>
+</button>
+<h1 class="font-headline-md text-headline-md font-extrabold text-primary">City Ranks</h1>
+<button aria-label="Notifications" class="text-primary hover:opacity-80 active:scale-95 transition-transform duration-200 flex items-center justify-center w-10 h-10 rounded-full">
+<span class="material-symbols-outlined text-2xl" data-icon="notifications">notifications</span>
+</button>
+</div>
+</header>
+<!-- Main Content -->
+<main class="flex-1 w-full max-w-md mx-auto pt-[80px] pb-[100px] px-container-padding flex flex-col gap-lg overflow-y-auto no-scrollbar relative">
+<!-- Segmented Control -->
+<div class="bg-surface-container-highest rounded-lg p-[4px] flex">
+<button class="flex-1 bg-surface-container-lowest text-primary shadow-sm rounded-[6px] py-2 font-label-bold text-label-bold text-center transition-all">Friends</button>
+<button class="flex-1 text-on-surface-variant py-2 font-label-bold text-label-bold text-center transition-all hover:bg-surface-container-low rounded-[6px]">Global</button>
+</div>
+<!-- Leaderboard List -->
+<div class="flex flex-col gap-md">
+<!-- Rank 1 -->
+<div class="bg-surface-container-lowest rounded-lg border border-outline-variant p-md ambient-shadow flex items-center gap-md relative overflow-hidden group hover:border-primary-fixed-dim transition-colors">
+<div class="absolute inset-y-0 left-0 w-1 bg-[#FFD700]"></div>
+<div class="flex flex-col items-center justify-center w-8">
+<span class="font-headline-sm text-headline-sm text-on-surface">1</span>
+<span class="material-symbols-outlined text-sm gold-medal" data-icon="workspace_premium" data-weight="fill">workspace_premium</span>
+</div>
+<div class="w-12 h-12 rounded-full overflow-hidden flex-shrink-0 bg-surface-variant border-2 border-surface">
+<img alt="Avatar" class="w-full h-full object-cover" data-alt="A close-up portrait of a cheerful modern explorer wearing a subtle travel cap, illuminated by bright, natural daylight in a minimal urban setting, shot on 35mm film style with soft depth of field." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBR-HGsWXeRn-_U5T7LsVMyuy62Szdywz29kI0UyrlwhFP7M4_bihRxZ36lEnPvF8P-YxEXbZk9YRDKvYPuXY1fFxA0kH7oj_v7GUPCGpOz2mC2LtEyJo9qPjB5QleM_t7ycFzQpVVC99S3PxqFWfEdGAj3JaCKVRHal5GgFfMDUHn13uHVcXM41tSpblENDkyK6GL6X0mFTVkBf8Kh4exz4r4YSYwik-D82mtOTyB3yb7-WLKmQIrfbQ"/>
+</div>
+<div class="flex-1 min-w-0">
+<h3 class="font-label-bold text-label-bold text-on-surface truncate">Alex Rivera</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant truncate">Master Explorer</p>
+</div>
+<div class="flex flex-col items-end">
+<span class="font-headline-sm text-headline-sm text-primary">12,450</span>
+<span class="font-label-md text-label-md text-on-surface-variant">pts</span>
+</div>
+</div>
+<!-- Rank 2 -->
+<div class="bg-surface-container-lowest rounded-lg border border-outline-variant p-md ambient-shadow flex items-center gap-md relative overflow-hidden group hover:border-primary-fixed-dim transition-colors">
+<div class="absolute inset-y-0 left-0 w-1 bg-[#C0C0C0]"></div>
+<div class="flex flex-col items-center justify-center w-8">
+<span class="font-headline-sm text-headline-sm text-on-surface">2</span>
+<span class="material-symbols-outlined text-sm silver-medal" data-icon="workspace_premium" data-weight="fill">workspace_premium</span>
+</div>
+<div class="w-12 h-12 rounded-full overflow-hidden flex-shrink-0 bg-surface-variant border-2 border-surface">
+<img alt="Avatar" class="w-full h-full object-cover" data-alt="A portrait of a thoughtful female traveler with short hair, wearing a casual denim jacket, soft indirect lighting creating a serene mood, minimalist concrete background, highly detailed." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCot_-Mz2N7j-mATFY7oOVbOyixrTwbi6c6Lpbxz8KEX6i0xnCoxIjhVXyt6wqX3WRoEqaxRg8B_aDoLxmvZGhQfAs7L2xhnAltrdgb771aOPdQEes8VIsWeGQku-Ubinr9Y5_nB0dnG-mCic4ACwbzRH50dcnyogIZUPuevDtytz5Sv_fXUrcq6d-3Rw3OtsBo6DOeV8M9AWGZTvRJttVBle_vPky7ANgwcgxWBe1ysAFuCSvaKKvikg"/>
+</div>
+<div class="flex-1 min-w-0">
+<h3 class="font-label-bold text-label-bold text-on-surface truncate">Jordan Lee</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant truncate">City Navigator</p>
+</div>
+<div class="flex flex-col items-end">
+<span class="font-headline-sm text-headline-sm text-primary">11,200</span>
+<span class="font-label-md text-label-md text-on-surface-variant">pts</span>
+</div>
+</div>
+<!-- Rank 3 -->
+<div class="bg-surface-container-lowest rounded-lg border border-outline-variant p-md ambient-shadow flex items-center gap-md relative overflow-hidden group hover:border-primary-fixed-dim transition-colors">
+<div class="absolute inset-y-0 left-0 w-1 bg-[#CD7F32]"></div>
+<div class="flex flex-col items-center justify-center w-8">
+<span class="font-headline-sm text-headline-sm text-on-surface">3</span>
+<span class="material-symbols-outlined text-sm bronze-medal" data-icon="workspace_premium" data-weight="fill">workspace_premium</span>
+</div>
+<div class="w-12 h-12 rounded-full overflow-hidden flex-shrink-0 bg-surface-variant border-2 border-surface">
+<img alt="Avatar" class="w-full h-full object-cover" data-alt="A bright portrait of a young man with glasses, smiling warmly, wearing a simple blue t-shirt, high-key lighting, minimalist white studio background, clean and modern aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCh2NBHa8h4jwdwsoooYBPN6wpy9zhKXpHpGWp85K71-sZ3RXsC4reV7NLc_lbe_D4BohN1hrosy8BLLzTpoEcrzEak_XBd8fyFwrbRH7UigTVBinIEf-ynMAQo8Ey9z6i1NtWnFHKX7oyxVYJ7BJTcgfuiuJkfKc32aHrXjQYXGOPymQfwoty6_X6wizqTFYYK1HWbTPzDrMQyrE1bC2GE6Y1L1YD1i6_rtTJ44BvcRQHOsUm04293_g"/>
+</div>
+<div class="flex-1 min-w-0">
+<h3 class="font-label-bold text-label-bold text-on-surface truncate">Casey Smith</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant truncate">Local Guide</p>
+</div>
+<div class="flex flex-col items-end">
+<span class="font-headline-sm text-headline-sm text-primary">10,850</span>
+<span class="font-label-md text-label-md text-on-surface-variant">pts</span>
+</div>
+</div>
+<!-- Rank 4 -->
+<div class="bg-surface-container-lowest rounded-lg border border-outline-variant p-md flex items-center gap-md group hover:border-primary-fixed-dim transition-colors">
+<div class="flex flex-col items-center justify-center w-8">
+<span class="font-headline-sm text-headline-sm text-on-surface-variant">4</span>
+</div>
+<div class="w-10 h-10 rounded-full overflow-hidden flex-shrink-0 bg-surface-variant border-2 border-surface">
+<img alt="Avatar" class="w-full h-full object-cover" data-alt="A profile picture of a woman looking away, minimalist aesthetic, natural lighting, wearing a tan coat, standing near a bright modern window, soft focus background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBymwGbVmL-aqcv5OQWVDC8nM4LnMrFqa3YMdVhelAoWAACuZJLVDoa6-P0Ti5PiW1_7ocHZvjJQMEAv1Bi-hkXP81EJBR7RgGq7XI16gogf-zD107CBman_7vACsHNCN30ECJjMlhHb4gLiAcyWadAfd_Qjqz7nHF8Q7ykJVis-rna0GQDZl1sza-Sl1lI59qcbWdHBACLYbwJ8h6M717KUAkgmkK7RfLKwqz-wjhu_l9QdaNeGUhFFg"/>
+</div>
+<div class="flex-1 min-w-0">
+<h3 class="font-label-bold text-label-bold text-on-surface truncate">Sam Taylor</h3>
+</div>
+<div class="flex flex-col items-end">
+<span class="font-body-lg text-body-lg text-primary font-bold">9,420</span>
+</div>
+</div>
+<!-- Rank 5 -->
+<div class="bg-surface-container-lowest rounded-lg border border-outline-variant p-md flex items-center gap-md group hover:border-primary-fixed-dim transition-colors">
+<div class="flex flex-col items-center justify-center w-8">
+<span class="font-headline-sm text-headline-sm text-on-surface-variant">5</span>
+</div>
+<div class="w-10 h-10 rounded-full overflow-hidden flex-shrink-0 bg-surface-variant border-2 border-surface">
+<div class="w-full h-full bg-surface-container-high flex items-center justify-center text-primary font-label-bold">JD</div>
+</div>
+<div class="flex-1 min-w-0">
+<h3 class="font-label-bold text-label-bold text-on-surface truncate">Jamie Doe</h3>
+</div>
+<div class="flex flex-col items-end">
+<span class="font-body-lg text-body-lg text-primary font-bold">8,900</span>
+</div>
+</div>
+</div>
+</main>
+<!-- Pinned User Rank at Bottom (Above Nav) -->
+<div class="fixed bottom-[72px] w-full max-w-md mx-auto left-0 right-0 px-container-padding z-40 pb-md">
+<div class="bg-primary-container text-on-primary-container rounded-lg p-md floating-shadow flex items-center gap-md border border-outline-variant/30">
+<div class="flex flex-col items-center justify-center w-8">
+<span class="font-headline-sm text-headline-sm text-on-secondary">42</span>
+</div>
+<div class="w-12 h-12 rounded-full overflow-hidden flex-shrink-0 bg-surface-variant border-2 border-primary">
+<img alt="Your Avatar" class="w-full h-full object-cover" data-alt="A portrait of the user, smiling confidently, wearing modern travel gear, bright outdoor lighting with a slight lens flare, clean and premium lifestyle aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAvVbCdDMlkgOsgXhvM1KtqiJLCTUTNgzjce29ZpB_TkFw0ATV0ietXDrgob4HFMWzfuEnoraLSOV2I35y5hL7lrgUWL8CW7jHO_74ST5zNX1jDBjBGrtLkrgwnhEvPTs_1X0J6z4Lu8lAEHFPw0s7UhI47ehf_Etp80DZLtE_NQvrU_67hAH211oyWv1k1QUqigT4fMhDChXcYt2oaWZ9pUg7tNLR4B3F80bGqKr2IZEz6SFXwt3lMWA"/>
+</div>
+<div class="flex-1 min-w-0">
+<h3 class="font-label-bold text-label-bold text-on-secondary truncate">You</h3>
+<p class="font-body-sm text-body-sm text-primary-fixed-dim truncate">Rookie Explorer</p>
+</div>
+<div class="flex flex-col items-end">
+<span class="font-headline-sm text-headline-sm text-on-secondary">3,120</span>
+<span class="font-label-md text-label-md text-primary-fixed-dim">pts</span>
+</div>
+</div>
+</div>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 w-full z-50 rounded-t-xl bg-surface shadow-[0_-2px_10px_rgba(0,0,0,0.05)] md:hidden">
+<div class="flex justify-around items-center px-4 pb-4 pt-2">
+<!-- Home -->
+<button class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-container-low active:scale-90 transition-all duration-200 px-4 py-1 rounded-xl">
+<span class="material-symbols-outlined mb-1" data-icon="home">home</span>
+<span class="font-label-md text-label-md">Home</span>
+</button>
+<!-- Explore -->
+<button class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-container-low active:scale-90 transition-all duration-200 px-4 py-1 rounded-xl">
+<span class="material-symbols-outlined mb-1" data-icon="explore">explore</span>
+<span class="font-label-md text-label-md">Explore</span>
+</button>
+<!-- Ranks (Active) -->
+<button class="flex flex-col items-center justify-center bg-secondary-container text-on-secondary-container rounded-xl px-4 py-1 active:scale-90 transition-all duration-200">
+<span class="material-symbols-outlined mb-1" data-icon="leaderboard" data-weight="fill">leaderboard</span>
+<span class="font-label-md text-label-md font-bold">Ranks</span>
+</button>
+<!-- Profile -->
+<button class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-container-low active:scale-90 transition-all duration-200 px-4 py-1 rounded-xl">
+<span class="material-symbols-outlined mb-1" data-icon="person">person</span>
+<span class="font-label-md text-label-md">Profile</span>
+</button>
+</div>
+</nav>
+<script>
+        // Simple script to handle segmented control switching visually
+        document.addEventListener('DOMContentLoaded', () => {
+            const tabs = document.querySelectorAll('.bg-surface-container-highest button');
+            tabs.forEach(tab => {
+                tab.addEventListener('click', () => {
+                    // Reset all
+                    tabs.forEach(t => {
+                        t.classList.remove('bg-surface-container-lowest', 'text-primary', 'shadow-sm');
+                        t.classList.add('text-on-surface-variant', 'hover:bg-surface-container-low');
+                    });
+                    // Set active
+                    tab.classList.add('bg-surface-container-lowest', 'text-primary', 'shadow-sm');
+                    tab.classList.remove('text-on-surface-variant', 'hover:bg-surface-container-low');
+                });
+            });
+        });
+    </script>
+</body></html>

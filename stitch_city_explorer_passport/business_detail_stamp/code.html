@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Business Detail</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@700;800&amp;family=Work+Sans:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "primary-container": "#1a2b48",
+                        "outline-variant": "#c5c6ce",
+                        "on-error": "#ffffff",
+                        "tertiary-container": "#282c2e",
+                        "on-primary-container": "#8293b5",
+                        "on-secondary-container": "#5d1900",
+                        "secondary-container": "#fe6a34",
+                        "on-surface": "#111c2c",
+                        "on-background": "#111c2c",
+                        "on-secondary": "#ffffff",
+                        "surface-container-high": "#dee8ff",
+                        "error-container": "#ffdad6",
+                        "on-primary-fixed": "#081b38",
+                        "on-secondary-fixed-variant": "#832600",
+                        "on-secondary-fixed": "#390c00",
+                        "surface-container-low": "#f0f3ff",
+                        "background": "#f9f9ff",
+                        "surface-dim": "#cfdaf1",
+                        "primary": "#031632",
+                        "tertiary-fixed-dim": "#c4c7c9",
+                        "surface-variant": "#d8e3fa",
+                        "primary-fixed-dim": "#b6c7eb",
+                        "outline": "#75777e",
+                        "secondary": "#ab3500",
+                        "error": "#ba1a1a",
+                        "secondary-fixed-dim": "#ffb59d",
+                        "surface-container": "#e7eeff",
+                        "surface-tint": "#4e5f7e",
+                        "surface-container-lowest": "#ffffff",
+                        "on-error-container": "#93000a",
+                        "tertiary": "#141719",
+                        "on-surface-variant": "#44474d",
+                        "on-tertiary-fixed": "#191c1e",
+                        "on-tertiary-fixed-variant": "#444749",
+                        "inverse-primary": "#b6c7eb",
+                        "on-tertiary": "#ffffff",
+                        "on-primary-fixed-variant": "#374765",
+                        "surface-container-highest": "#d8e3fa",
+                        "surface": "#f9f9ff",
+                        "inverse-surface": "#263142",
+                        "inverse-on-surface": "#ebf1ff",
+                        "on-primary": "#ffffff",
+                        "on-tertiary-container": "#909395",
+                        "primary-fixed": "#d7e2ff",
+                        "surface-bright": "#f9f9ff",
+                        "tertiary-fixed": "#e0e3e5",
+                        "secondary-fixed": "#ffdbd0"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "xl": "32px",
+                        "sm": "8px",
+                        "md": "16px",
+                        "base": "4px",
+                        "lg": "24px",
+                        "gutter": "16px",
+                        "xs": "4px",
+                        "container-padding": "20px"
+                    },
+                    "fontFamily": {
+                        "headline-md": ["Plus Jakarta Sans"],
+                        "headline-lg": ["Plus Jakarta Sans"],
+                        "label-bold": ["Work Sans"],
+                        "headline-sm": ["Plus Jakarta Sans"],
+                        "headline-xl": ["Plus Jakarta Sans"],
+                        "label-md": ["Work Sans"],
+                        "body-lg": ["Work Sans"],
+                        "body-sm": ["Work Sans"],
+                        "body-md": ["Work Sans"]
+                    },
+                    "fontSize": {
+                        "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "700" }],
+                        "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+                        "label-bold": ["12px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "700" }],
+                        "headline-sm": ["20px", { "lineHeight": "28px", "fontWeight": "700" }],
+                        "headline-xl": ["40px", { "lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "800" }],
+                        "label-md": ["12px", { "lineHeight": "16px", "fontWeight": "500" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "body-sm": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }]
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-background text-on-background font-body-md min-h-screen flex flex-col">
+<!-- Header (No Nav Shell for detail screen) -->
+<header class="fixed top-0 w-full z-50 shadow-sm dark:bg-surface-container bg-surface dark:bg-surface flex justify-between items-center px-gutter h-16 w-full max-w-md mx-auto">
+<button aria-label="Go back" class="flex items-center justify-center p-2 rounded-full hover:bg-surface-variant transition-colors">
+<span class="material-symbols-outlined text-on-surface">arrow_back</span>
+</button>
+<span class="font-headline-sm text-headline-sm text-primary dark:text-primary-fixed-dim">City Hub</span>
+<button aria-label="Share" class="flex items-center justify-center p-2 rounded-full hover:bg-surface-variant transition-colors">
+<span class="material-symbols-outlined text-on-surface">share</span>
+</button>
+</header>
+<main class="flex-grow pt-16 pb-24 max-w-md mx-auto w-full">
+<!-- Hero Image -->
+<div class="relative w-full h-64 bg-surface-variant">
+<img alt="Coffee Shop Interior" class="w-full h-full object-cover" data-alt="A warm and inviting interior of a modern urban coffee shop. Sunlight streams through large windows, illuminating a rustic wooden counter and vintage espresso machine. The atmosphere is cozy, inviting, and slightly bustling, fitting an adventurous modern city theme." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDcXhHnvwnu5rBjRHPoZOFK0gXRVSJ6K0z-j15xoOYlXJaO9LEnoF7jmdrkIaRKuoixxDZX7rUxQFX3pFeUGri-UAsRDXRJ3efOhTcoFB8SHRbZaF0v8Hlqqxye35VfuD4g8RH7Ft65VwvhXZOjAdjZ5ixyUZnOfCOLpE3gZ-633sN7z8yAtiHT3TxeNsDJ-1YfIN0FkIAmhihUgC9B5b9KaMz25w3zS9s794mQv2jcNO9EoHQ-BjaytA"/>
+<!-- Floating Category Badge -->
+<div class="absolute top-4 right-4 bg-surface/90 backdrop-blur-sm px-3 py-1 rounded-full shadow-sm flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px] text-primary">local_cafe</span>
+<span class="font-label-bold text-label-bold text-primary">CAFE</span>
+</div>
+</div>
+<!-- Business Info Content -->
+<div class="px-container-padding py-lg bg-surface-container-lowest rounded-t-xl -mt-6 relative z-10 shadow-lg">
+<div class="flex justify-between items-start mb-2">
+<h1 class="font-headline-lg text-headline-lg text-primary">The Roastery</h1>
+<div class="flex items-center gap-1 text-secondary">
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-label-bold text-label-bold">4.8</span>
+</div>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-4">
+                Artisanal blends roasted in-house. A favorite spot for local explorers and digital nomads.
+            </p>
+<div class="flex items-center gap-2 mb-lg">
+<span class="material-symbols-outlined text-on-surface-variant text-[18px]">location_on</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">124 Main Street, Downtown</span>
+</div>
+<hr class="border-outline-variant/30 mb-lg"/>
+<!-- Passport Discounts Section -->
+<section class="mb-xl">
+<div class="flex items-center gap-2 mb-md">
+<span class="material-symbols-outlined text-primary text-[24px]">sell</span>
+<h2 class="font-headline-sm text-headline-sm text-primary">Exclusive Passport Discounts</h2>
+</div>
+<div class="grid grid-cols-1 gap-3">
+<!-- Discount Item 1 -->
+<div class="flex justify-between items-center p-md bg-surface border border-outline-variant/30 rounded-lg shadow-sm">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-primary-fixed flex items-center justify-center">
+<span class="material-symbols-outlined text-primary text-[20px]">coffee</span>
+</div>
+<div>
+<h3 class="font-label-bold text-label-bold text-on-surface">Signature Latte</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">House blend with oat milk</p>
+</div>
+</div>
+<div class="bg-secondary-container text-on-secondary-container px-3 py-1 rounded-full font-label-bold text-label-bold">
+                            20% Off
+                        </div>
+</div>
+<!-- Discount Item 2 -->
+<div class="flex justify-between items-center p-md bg-surface border border-outline-variant/30 rounded-lg shadow-sm">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-primary-fixed flex items-center justify-center">
+<span class="material-symbols-outlined text-primary text-[20px]">bakery_dining</span>
+</div>
+<div>
+<h3 class="font-label-bold text-label-bold text-on-surface">Pastry Box</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Assorted fresh croissants</p>
+</div>
+</div>
+<div class="bg-secondary-container text-on-secondary-container px-3 py-1 rounded-full font-label-bold text-label-bold">
+                            15% Off
+                        </div>
+</div>
+</div>
+</section>
+<!-- Passport Stamp Area -->
+<section class="relative bg-surface border border-outline-variant/30 rounded-xl p-lg flex flex-col items-center justify-center min-h-[200px] overflow-hidden shadow-sm">
+<!-- Background subtle map pattern -->
+<div class="absolute inset-0 opacity-[0.03] pointer-events-none" style="background-image: radial-gradient(#111c2c 1px, transparent 1px); background-size: 16px 16px;"></div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface mb-2 z-10 text-center">Ready to claim your reward?</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant text-center mb-6 z-10">Show this screen at the register to apply discounts and earn your digital stamp.</p>
+<!-- Stamp Overlay (Hidden by default, shown via JS) -->
+<div class="absolute inset-0 flex items-center justify-center z-20 pointer-events-none opacity-0 scale-150 transition-all duration-500 ease-out" id="stamp-overlay">
+<div class="border-4 border-secondary text-secondary rounded-full w-32 h-32 flex flex-col items-center justify-center transform -rotate-6 bg-surface/80 backdrop-blur-sm">
+<span class="material-symbols-outlined text-[40px] mb-1" style="font-variation-settings: 'FILL' 1;">verified</span>
+<span class="font-label-bold text-label-bold uppercase tracking-wider text-center leading-tight">Visited<br/>2023</span>
+</div>
+</div>
+<button class="w-full bg-secondary text-on-secondary font-label-bold text-label-bold py-4 rounded-lg shadow-[0_4px_14px_0_rgba(171,53,0,0.39)] hover:opacity-90 active:scale-95 transition-all duration-200 z-10 flex items-center justify-center gap-2" id="claim-btn">
+<span class="material-symbols-outlined">qr_code_scanner</span>
+                    Claim Discount &amp; Stamp
+                </button>
+</section>
+<!-- Alternative Action (Check-in for Landmarks) - Hidden in this business context, shown for structural completeness -->
+<div class="mt-8 hidden">
+<button class="w-full bg-primary text-on-primary font-label-bold text-label-bold py-4 rounded-lg shadow-sm hover:opacity-90 active:scale-95 transition-all duration-200 flex items-center justify-center gap-2">
+<span class="material-symbols-outlined">location_on</span>
+                    Check-in for 50 pts
+                </button>
+</div>
+</div>
+</main>
+<script>
+        document.getElementById('claim-btn').addEventListener('click', function() {
+            const stamp = document.getElementById('stamp-overlay');
+            stamp.classList.remove('opacity-0', 'scale-150');
+            stamp.classList.add('opacity-100', 'scale-100');
+            
+            this.disabled = true;
+            this.classList.remove('bg-secondary', 'text-on-secondary', 'shadow-[0_4px_14px_0_rgba(171,53,0,0.39)]');
+            this.classList.add('bg-surface-variant', 'text-on-surface-variant', 'cursor-not-allowed');
+            this.innerHTML = '<span class="material-symbols-outlined">check_circle</span> Stamp Claimed';
+        });
+    </script>
+</body></html>

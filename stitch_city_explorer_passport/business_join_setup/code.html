@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Business Join - City Hub</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@700;800&amp;family=Work+Sans:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "primary-container": "#1a2b48",
+                        "outline-variant": "#c5c6ce",
+                        "on-error": "#ffffff",
+                        "tertiary-container": "#282c2e",
+                        "on-primary-container": "#8293b5",
+                        "on-secondary-container": "#5d1900",
+                        "secondary-container": "#fe6a34",
+                        "on-surface": "#111c2c",
+                        "on-background": "#111c2c",
+                        "on-secondary": "#ffffff",
+                        "surface-container-high": "#dee8ff",
+                        "error-container": "#ffdad6",
+                        "on-primary-fixed": "#081b38",
+                        "on-secondary-fixed-variant": "#832600",
+                        "on-secondary-fixed": "#390c00",
+                        "surface-container-low": "#f0f3ff",
+                        "background": "#f9f9ff",
+                        "surface-dim": "#cfdaf1",
+                        "primary": "#031632",
+                        "tertiary-fixed-dim": "#c4c7c9",
+                        "surface-variant": "#d8e3fa",
+                        "primary-fixed-dim": "#b6c7eb",
+                        "outline": "#75777e",
+                        "secondary": "#ab3500",
+                        "error": "#ba1a1a",
+                        "secondary-fixed-dim": "#ffb59d",
+                        "surface-container": "#e7eeff",
+                        "surface-tint": "#4e5f7e",
+                        "surface-container-lowest": "#ffffff",
+                        "on-error-container": "#93000a",
+                        "tertiary": "#141719",
+                        "on-surface-variant": "#44474d",
+                        "on-tertiary-fixed": "#191c1e",
+                        "on-tertiary-fixed-variant": "#444749",
+                        "inverse-primary": "#b6c7eb",
+                        "on-tertiary": "#ffffff",
+                        "on-primary-fixed-variant": "#374765",
+                        "surface-container-highest": "#d8e3fa",
+                        "surface": "#f9f9ff",
+                        "inverse-surface": "#263142",
+                        "inverse-on-surface": "#ebf1ff",
+                        "on-primary": "#ffffff",
+                        "on-tertiary-container": "#909395",
+                        "primary-fixed": "#d7e2ff",
+                        "surface-bright": "#f9f9ff",
+                        "tertiary-fixed": "#e0e3e5",
+                        "secondary-fixed": "#ffdbd0"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "xl": "32px",
+                        "sm": "8px",
+                        "md": "16px",
+                        "base": "4px",
+                        "lg": "24px",
+                        "gutter": "16px",
+                        "xs": "4px",
+                        "container-padding": "20px"
+                    },
+                    "fontFamily": {
+                        "headline-md": ["Plus Jakarta Sans"],
+                        "headline-lg": ["Plus Jakarta Sans"],
+                        "label-bold": ["Work Sans"],
+                        "headline-sm": ["Plus Jakarta Sans"],
+                        "headline-xl": ["Plus Jakarta Sans"],
+                        "label-md": ["Work Sans"],
+                        "body-lg": ["Work Sans"],
+                        "body-sm": ["Work Sans"],
+                        "body-md": ["Work Sans"]
+                    },
+                    "fontSize": {
+                        "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "700" }],
+                        "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+                        "label-bold": ["12px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "700" }],
+                        "headline-sm": ["20px", { "lineHeight": "28px", "fontWeight": "700" }],
+                        "headline-xl": ["40px", { "lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "800" }],
+                        "label-md": ["12px", { "lineHeight": "16px", "fontWeight": "500" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "body-sm": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            background-color: #F7F9FB; /* Level 0 Base */
+        }
+        .b2b-input {
+            border: none;
+            border-bottom: 1px solid theme('colors.outline-variant');
+            background-color: #F8FAFC;
+            transition: border-color 0.2s ease, background-color 0.2s ease;
+        }
+        .b2b-input:focus {
+            outline: none;
+            border-bottom-color: theme('colors.primary');
+            background-color: theme('colors.surface-container-lowest');
+            box-shadow: 0 1px 0 0 theme('colors.primary');
+        }
+        .passport-card {
+            background-color: theme('colors.surface-container-lowest');
+            border: 1px solid #E2E8F0;
+            box-shadow: 0 4px 6px -1px rgba(3, 22, 50, 0.05), 0 2px 4px -1px rgba(3, 22, 50, 0.03); /* Soft Passport Blue tint */
+        }
+    </style>
+</head>
+<body class="font-body-md text-on-surface antialiased min-h-screen pb-lg">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 shadow-sm dark:bg-surface-container bg-surface dark:bg-surface text-primary dark:text-primary-fixed-dim font-headline-sm text-headline-sm">
+<div class="flex justify-between items-center px-gutter h-16 w-full max-w-md mx-auto">
+<button aria-label="Back" class="hover:opacity-80 active:scale-95 transition-transform duration-200 text-on-surface-variant dark:text-on-surface-variant">
+<span class="material-symbols-outlined" data-icon="arrow_back" data-weight="regular">arrow_back</span>
+</button>
+<div class="font-headline-md text-headline-md font-extrabold text-primary dark:text-primary-fixed-dim">City Hub</div>
+<div class="w-6 h-6"></div> <!-- Placeholder for balance -->
+</div>
+</header>
+<main class="pt-[88px] px-container-padding max-w-2xl mx-auto">
+<!-- Header Section -->
+<section class="mb-lg text-center">
+<div class="inline-flex items-center justify-center w-16 h-16 rounded-full bg-primary-container text-on-primary-container mb-md">
+<span class="material-symbols-outlined text-[32px]" data-icon="storefront">storefront</span>
+</div>
+<h1 class="font-headline-lg text-headline-lg text-primary mb-sm">Put Your Business on the Map</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-md mx-auto">Join the City Hub network and attract urban explorers to your location.</p>
+</section>
+<!-- Form Area -->
+<form class="space-y-xl">
+<!-- Basic Info Card -->
+<div class="passport-card rounded-lg p-lg">
+<h2 class="font-headline-sm text-headline-sm text-primary mb-md flex items-center gap-2">
+<span class="material-symbols-outlined text-outline">business</span>
+                    Business Details
+                </h2>
+<div class="space-y-md">
+<div>
+<label class="block font-label-bold text-label-bold text-on-surface-variant mb-xs uppercase tracking-wider" for="business-name">Business Name</label>
+<input class="b2b-input w-full px-sm py-sm font-body-md text-on-surface placeholder:text-outline" id="business-name" placeholder="e.g., The Local Grind" type="text"/>
+</div>
+<div>
+<label class="block font-label-bold text-label-bold text-on-surface-variant mb-xs uppercase tracking-wider" for="category">Category</label>
+<select class="b2b-input w-full px-sm py-sm font-body-md text-on-surface" id="category">
+<option disabled="" selected="" value="">Select a category</option>
+<option value="cafe">Cafe &amp; Bakery</option>
+<option value="restaurant">Restaurant</option>
+<option value="retail">Retail Store</option>
+<option value="museum">Museum &amp; Culture</option>
+<option value="entertainment">Entertainment</option>
+</select>
+</div>
+<div>
+<label class="block font-label-bold text-label-bold text-on-surface-variant mb-xs uppercase tracking-wider" for="address">Physical Address</label>
+<input class="b2b-input w-full px-sm py-sm font-body-md text-on-surface placeholder:text-outline" id="address" placeholder="123 Main St, City, ST 12345" type="text"/>
+</div>
+</div>
+</div>
+<!-- Passport Menu Configuration -->
+<div class="passport-card rounded-lg p-lg">
+<div class="flex items-start justify-between mb-md">
+<div>
+<h2 class="font-headline-sm text-headline-sm text-primary flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary">local_activity</span>
+                            Configure Your Passport Menu
+                        </h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-base">Define up to 4 exclusive discounts for City Hub explorers.</p>
+</div>
+</div>
+<div class="space-y-sm bg-surface p-md rounded-md border border-surface-variant">
+<!-- Slot 1 -->
+<div class="flex flex-col sm:flex-row gap-sm items-center">
+<div class="flex-shrink-0 w-8 h-8 rounded-full bg-secondary-container text-on-secondary-container flex items-center justify-center font-label-bold text-label-bold">1</div>
+<input class="b2b-input flex-grow w-full px-sm py-sm font-body-sm text-on-surface placeholder:text-outline" placeholder="Discounted Item Name (e.g., Signature Latte)" type="text"/>
+<div class="relative w-full sm:w-32">
+<input class="b2b-input w-full px-sm py-sm pr-8 font-body-sm text-on-surface placeholder:text-outline text-right" placeholder="Value" type="number"/>
+<span class="absolute right-3 top-1/2 -translate-y-1/2 font-body-sm text-outline-variant">%</span>
+</div>
+</div>
+<hr class="border-t border-surface-variant my-sm"/>
+<!-- Slot 2 -->
+<div class="flex flex-col sm:flex-row gap-sm items-center">
+<div class="flex-shrink-0 w-8 h-8 rounded-full bg-surface-container-high text-on-surface-variant flex items-center justify-center font-label-bold text-label-bold">2</div>
+<input class="b2b-input flex-grow w-full px-sm py-sm font-body-sm text-on-surface placeholder:text-outline" placeholder="Optional Item" type="text"/>
+<div class="relative w-full sm:w-32">
+<input class="b2b-input w-full px-sm py-sm pr-8 font-body-sm text-on-surface placeholder:text-outline text-right" placeholder="Value" type="number"/>
+<span class="absolute right-3 top-1/2 -translate-y-1/2 font-body-sm text-outline-variant">%</span>
+</div>
+</div>
+<hr class="border-t border-surface-variant my-sm"/>
+<!-- Slot 3 -->
+<div class="flex flex-col sm:flex-row gap-sm items-center">
+<div class="flex-shrink-0 w-8 h-8 rounded-full bg-surface-container-high text-on-surface-variant flex items-center justify-center font-label-bold text-label-bold">3</div>
+<input class="b2b-input flex-grow w-full px-sm py-sm font-body-sm text-on-surface placeholder:text-outline" placeholder="Optional Item" type="text"/>
+<div class="relative w-full sm:w-32">
+<input class="b2b-input w-full px-sm py-sm pr-8 font-body-sm text-on-surface placeholder:text-outline text-right" placeholder="Value" type="number"/>
+<span class="absolute right-3 top-1/2 -translate-y-1/2 font-body-sm text-outline-variant">%</span>
+</div>
+</div>
+<hr class="border-t border-surface-variant my-sm"/>
+<!-- Slot 4 -->
+<div class="flex flex-col sm:flex-row gap-sm items-center">
+<div class="flex-shrink-0 w-8 h-8 rounded-full bg-surface-container-high text-on-surface-variant flex items-center justify-center font-label-bold text-label-bold">4</div>
+<input class="b2b-input flex-grow w-full px-sm py-sm font-body-sm text-on-surface placeholder:text-outline" placeholder="Optional Item" type="text"/>
+<div class="relative w-full sm:w-32">
+<input class="b2b-input w-full px-sm py-sm pr-8 font-body-sm text-on-surface placeholder:text-outline text-right" placeholder="Value" type="number"/>
+<span class="absolute right-3 top-1/2 -translate-y-1/2 font-body-sm text-outline-variant">%</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Action Button -->
+<div class="pt-md pb-xl">
+<button class="w-full bg-primary text-on-primary font-label-bold text-label-bold uppercase tracking-wider py-4 px-6 rounded-lg shadow-md hover:bg-primary-container hover:shadow-lg active:scale-95 transition-all duration-200 flex items-center justify-center gap-2" type="button">
+                    Join City Passport
+                    <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</button>
+<p class="text-center font-body-sm text-body-sm text-outline mt-sm">By joining, you agree to our B2B Terms of Service.</p>
+</div>
+</form>
+</main>
+</body></html>

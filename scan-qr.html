@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>City Compass — Scan to test</title>
+<style>
+  body { margin: 0; min-height: 100vh; display: flex; align-items: center; justify-content: center;
+         background: #0f172a; color: #e2e8f0; font-family: -apple-system, "Segoe UI", Roboto, sans-serif; }
+  .card { text-align: center; padding: 32px; }
+  h1 { font-size: 24px; margin: 0 0 6px; }
+  p  { color: #94a3b8; font-size: 14px; margin: 4px 0; }
+  canvas { margin: 20px auto; background: #fff; border-radius: 12px; padding: 12px; display: block; }
+  code { background: #1e293b; padding: 2px 8px; border-radius: 6px; color: #7dd3fc; font-size: 15px; }
+  .steps { text-align: left; display: inline-block; margin-top: 10px; font-size: 13px; line-height: 1.8; color: #cbd5e1; }
+  .fail { display: none; color: #f87171; }
+</style>
+</head>
+<body>
+  <div class="card">
+    <h1>City Compass 🧭</h1>
+    <p>Scan with the <b>Expo Go</b> app on your iPhone</p>
+    <canvas id="qr"></canvas>
+    <p>Or open Expo Go &rarr; <b>Enter URL manually</b>:</p>
+    <p><code>exp://192.168.1.186:8081</code></p>
+    <div class="steps">
+      1. Phone and computer on the same Wi-Fi<br />
+      2. Open Expo Go (from the App Store) and scan the QR<br />
+      3. Can't connect? Allow Node.js through Windows Firewall, then reload
+    </div>
+    <p class="fail" id="fail">QR library failed to load — use the manual URL above.</p>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/qrcode/build/qrcode.min.js"></script>
+  <script>
+    const text = 'exp://192.168.1.186:8081';
+    const canvas = document.getElementById('qr');
+    if (typeof QRCode !== 'undefined') {
+      QRCode.toCanvas(canvas, text, { width: 360, margin: 2, errorCorrectionLevel: 'M' }, (err) => {
+        if (err) document.getElementById('fail').style.display = 'block';
+      });
+    } else {
+      document.getElementById('fail').style.display = 'block';
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>City Hub - NYC Passport</title>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700;800&amp;family=Work+Sans:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Config injected from instructions -->
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "primary-container": "#1a2b48",
+                        "outline-variant": "#c5c6ce",
+                        "on-error": "#ffffff",
+                        "tertiary-container": "#282c2e",
+                        "on-primary-container": "#8293b5",
+                        "on-secondary-container": "#5d1900",
+                        "secondary-container": "#fe6a34",
+                        "on-surface": "#111c2c",
+                        "on-background": "#111c2c",
+                        "on-secondary": "#ffffff",
+                        "surface-container-high": "#dee8ff",
+                        "error-container": "#ffdad6",
+                        "on-primary-fixed": "#081b38",
+                        "on-secondary-fixed-variant": "#832600",
+                        "on-secondary-fixed": "#390c00",
+                        "surface-container-low": "#f0f3ff",
+                        "background": "#f9f9ff",
+                        "surface-dim": "#cfdaf1",
+                        "primary": "#031632",
+                        "tertiary-fixed-dim": "#c4c7c9",
+                        "surface-variant": "#d8e3fa",
+                        "primary-fixed-dim": "#b6c7eb",
+                        "outline": "#75777e",
+                        "secondary": "#ab3500",
+                        "error": "#ba1a1a",
+                        "secondary-fixed-dim": "#ffb59d",
+                        "surface-container": "#e7eeff",
+                        "surface-tint": "#4e5f7e",
+                        "surface-container-lowest": "#ffffff",
+                        "on-error-container": "#93000a",
+                        "tertiary": "#141719",
+                        "on-surface-variant": "#44474d",
+                        "on-tertiary-fixed": "#191c1e",
+                        "on-tertiary-fixed-variant": "#444749",
+                        "inverse-primary": "#b6c7eb",
+                        "on-tertiary": "#ffffff",
+                        "on-primary-fixed-variant": "#374765",
+                        "surface-container-highest": "#d8e3fa",
+                        "surface": "#f9f9ff",
+                        "inverse-surface": "#263142",
+                        "inverse-on-surface": "#ebf1ff",
+                        "on-primary": "#ffffff",
+                        "on-tertiary-container": "#909395",
+                        "primary-fixed": "#d7e2ff",
+                        "surface-bright": "#f9f9ff",
+                        "tertiary-fixed": "#e0e3e5",
+                        "secondary-fixed": "#ffdbd0"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "xl": "32px",
+                        "sm": "8px",
+                        "md": "16px",
+                        "base": "4px",
+                        "lg": "24px",
+                        "gutter": "16px",
+                        "xs": "4px",
+                        "container-padding": "20px"
+                    },
+                    "fontFamily": {
+                        "headline-md": ["Plus Jakarta Sans"],
+                        "headline-lg": ["Plus Jakarta Sans"],
+                        "label-bold": ["Work Sans"],
+                        "headline-sm": ["Plus Jakarta Sans"],
+                        "headline-xl": ["Plus Jakarta Sans"],
+                        "label-md": ["Work Sans"],
+                        "body-lg": ["Work Sans"],
+                        "body-sm": ["Work Sans"],
+                        "body-md": ["Work Sans"]
+                    },
+                    "fontSize": {
+                        "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "700" }],
+                        "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+                        "label-bold": ["12px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "700" }],
+                        "headline-sm": ["20px", { "lineHeight": "28px", "fontWeight": "700" }],
+                        "headline-xl": ["40px", { "lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "800" }],
+                        "label-md": ["12px", { "lineHeight": "16px", "fontWeight": "500" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "body-sm": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body {
+            background-color: #F7F9FB; /* Level 0 Base */
+            /* Tailwind background class handles the rest, but setting base here for safety */
+        }
+        
+        /* Hide scrollbar for horizontal scrolling areas */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;  /* IE and Edge */
+            scrollbar-width: none;  /* Firefox */
+        }
+
+        /* Ambient Shadows */
+        .shadow-level-1 {
+            box-shadow: 0 4px 12px rgba(3, 22, 50, 0.12); /* 12% Passport Blue tint */
+        }
+        .shadow-level-2 {
+            box-shadow: 0 6px 16px rgba(3, 22, 50, 0.20); /* 20% opacity */
+        }
+        
+        /* Stamp Motif */
+        .stamp-rotate {
+            transform: rotate(-3deg);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md min-h-screen pb-24 md:pb-0">
+<!-- TopAppBar (Mobile) / Top Navigation Cluster (Web) -->
+<!-- Applying JSON styling mandates -->
+<header class="fixed top-0 w-full z-50 bg-surface dark:bg-surface shadow-sm dark:bg-surface-container flex justify-between items-center px-gutter h-16 w-full max-w-md mx-auto md:max-w-full md:px-container-padding">
+<div class="flex items-center gap-2 hover:opacity-80 cursor-pointer active:scale-95 transition-transform duration-200">
+<span class="material-symbols-outlined text-primary dark:text-primary-fixed-dim">map</span>
+<span class="font-headline-md text-headline-md font-extrabold text-primary dark:text-primary-fixed-dim tracking-tight">City Hub</span>
+</div>
+<!-- Desktop Navigation Cluster (Hidden on Mobile) -->
+<nav class="hidden md:flex items-center gap-8">
+<a class="font-label-md text-label-md text-primary dark:text-primary-fixed-dim border-b-2 border-secondary-container pb-1" href="#">Home</a>
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors pb-1" href="#">Explore</a>
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors pb-1" href="#">Ranks</a>
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors pb-1" href="#">Profile</a>
+</nav>
+<button class="hover:opacity-80 active:scale-95 transition-transform duration-200">
+<span class="material-symbols-outlined text-primary dark:text-primary-fixed-dim">notifications</span>
+</button>
+</header>
+<!-- Main Content Canvas -->
+<main class="pt-20 px-container-padding max-w-4xl mx-auto">
+<!-- Dashboard Header: Passport Status -->
+<section class="mt-lg mb-lg flex items-center justify-between">
+<div>
+<h1 class="font-headline-xl text-headline-xl text-primary">NYC Passport</h1>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">Your urban exploration journey.</p>
+</div>
+<!-- Progress Ring (Simulated with CSS gradient for visual) -->
+<div class="relative w-20 h-20 flex items-center justify-center rounded-full bg-surface-variant">
+<!-- SVG implementation of progress ring would be ideal here, using a simpler representation for pure HTML/CSS without external SVGs -->
+<div class="absolute inset-1 rounded-full border-[6px] border-surface shadow-inner"></div>
+<div class="absolute inset-1 rounded-full border-[6px] border-secondary-container" style="clip-path: polygon(50% 50%, 50% 0%, 100% 0%, 100% 100%, 0% 100%, 0% 50%); transform: rotate(45deg);"></div>
+<div class="z-10 flex flex-col items-center">
+<span class="font-label-bold text-label-bold text-primary">12/50</span>
+<span class="text-[8px] font-bold text-secondary uppercase tracking-wider">Stamps</span>
+</div>
+</div>
+</section>
+<!-- Search & Filter Bar -->
+<section class="mb-lg">
+<div class="relative flex items-center">
+<span class="material-symbols-outlined absolute left-4 text-outline">search</span>
+<input class="w-full bg-surface-container-low border-b-2 border-transparent focus:border-primary rounded-t-lg py-3 pl-12 pr-4 font-body-md text-body-md text-on-surface outline-none transition-colors" placeholder="Search venues or categories..." type="text"/>
+<button class="absolute right-4 p-1 text-primary hover:bg-surface-variant rounded-full transition-colors">
+<span class="material-symbols-outlined">tune</span>
+</button>
+</div>
+<!-- Filter Chips -->
+<div class="flex gap-2 mt-4 overflow-x-auto no-scrollbar pb-2">
+<button class="flex-shrink-0 px-4 py-1.5 rounded-full bg-primary text-on-primary font-label-md text-label-md">All</button>
+<button class="flex-shrink-0 px-4 py-1.5 rounded-full border border-outline-variant text-on-surface-variant hover:bg-surface-variant font-label-md text-label-md transition-colors">Food &amp; Drink</button>
+<button class="flex-shrink-0 px-4 py-1.5 rounded-full border border-outline-variant text-on-surface-variant hover:bg-surface-variant font-label-md text-label-md transition-colors">History</button>
+<button class="flex-shrink-0 px-4 py-1.5 rounded-full border border-outline-variant text-on-surface-variant hover:bg-surface-variant font-label-md text-label-md transition-colors">Shopping</button>
+<button class="flex-shrink-0 px-4 py-1.5 rounded-full border border-outline-variant text-on-surface-variant hover:bg-surface-variant font-label-md text-label-md transition-colors">Parks</button>
+</div>
+</section>
+<!-- Passport Books (Horizontal Scroll) -->
+<section class="mb-lg">
+<h2 class="font-headline-sm text-headline-sm text-primary mb-4 flex items-center justify-between">
+                Current Books
+                <a class="font-label-md text-label-md text-secondary-container hover:underline" href="#">View All</a>
+</h2>
+<div class="flex gap-4 overflow-x-auto no-scrollbar pb-4 -mx-container-padding px-container-padding snap-x">
+<!-- Book Card 1 -->
+<div class="snap-start flex-shrink-0 w-64 bg-surface-container-lowest rounded-lg border border-outline-variant shadow-level-1 overflow-hidden relative">
+<div class="h-24 w-full bg-surface-variant relative">
+<img class="w-full h-full object-cover absolute inset-0" data-alt="A stylized illustration of a coffee cup and a croissant sitting on a small round table in a bustling New York City cafe. The style is modern, minimalist vector art with clean lines. The lighting is soft and warm, creating a cozy morning light-mode aesthetic. The color palette uses deep navy blues (Passport Blue) for structural elements and vibrant orange (Stamp Orange) accents for the coffee cup, set against an off-white background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBAuo_WcDISUSISg4Uph0Ag1eogtEtVO4NVcuTjnzGGCV9whXePdklXV7rRv5bW6qXB7oOgEL-arcbxPbvp11YrK3tBB9Rvq7GeuvBDr8kFHwKfuSA7EDy0sL9ztb3j_fr48Ya1D3EQn16CVhGiPVSQdl0UzofNzV8M9qncOWgT_IHSz5Ae-KHZLxmzXDVEP0AQ1wTrq6rH0BhfOhuuvctQTfsperykig0QFzYHGWhNKCp9wtKNpEL71A"/>
+</div>
+<div class="p-md">
+<h3 class="font-headline-sm text-headline-sm text-primary leading-tight">Downtown Eats</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1 mb-3">Discover hidden culinary gems in Lower Manhattan.</p>
+<!-- Progress -->
+<div class="flex items-center gap-2">
+<div class="h-2 w-full bg-surface-variant rounded-full overflow-hidden">
+<div class="h-full bg-secondary-container w-[40%] rounded-full"></div>
+</div>
+<span class="font-label-bold text-label-bold text-secondary-container">4/10</span>
+</div>
+</div>
+</div>
+<!-- Book Card 2 -->
+<div class="snap-start flex-shrink-0 w-64 bg-surface-container-lowest rounded-lg border border-outline-variant shadow-level-1 overflow-hidden relative">
+<div class="h-24 w-full bg-surface-variant relative">
+<img class="w-full h-full object-cover absolute inset-0" data-alt="A graphic vector illustration of the Statue of Liberty torch, silhouetted against a bright morning sky. The artwork is clean, modern, and flat, fitting an adventurous light-mode UI. The dominant colors are pristine white and off-white for the background, with the torch rendered in deep Passport Blue and the flame glowing in vibrant Stamp Orange. The overall mood is energetic and celebratory." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAZIg2RgzxPgTCSw89GAFWEI_gyL5XYSofsC9KsHGX_5Mc7rDAGlu9rhYMTZWA0oEFicUuFoCZXZcwAmY93LmvMlCa6ZJXE9gaQqNr9TKxi5J3s-86_o4fWiWaEaswk6CDdMPqi9LAuY2CfJmShB76rEG5pmIQ1po61duTwKcl0l8HFu37XH_Z71rzwYUnUaqVhYCdAto7LtuUm5O0-wCRG5meLkgxF0TikrwnVH6iwXWSeRbr7DwOCvQ"/>
+</div>
+<div class="p-md">
+<h3 class="font-headline-sm text-headline-sm text-primary leading-tight">Historical Icons</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1 mb-3">Visit the monuments that define NYC's rich history.</p>
+<!-- Progress -->
+<div class="flex items-center gap-2">
+<div class="h-2 w-full bg-surface-variant rounded-full overflow-hidden">
+<div class="h-full bg-secondary-container w-[15%] rounded-full"></div>
+</div>
+<span class="font-label-bold text-label-bold text-secondary-container">2/15</span>
+</div>
+</div>
+</div>
+<!-- Book Card 3 -->
+<div class="snap-start flex-shrink-0 w-64 bg-surface-container-lowest rounded-lg border border-outline-variant shadow-level-1 overflow-hidden relative flex items-center justify-center bg-surface-container-low border-dashed border-2 border-outline">
+<div class="text-center p-md">
+<span class="material-symbols-outlined text-outline text-[32px] mb-2">add_circle</span>
+<p class="font-label-bold text-label-bold text-outline">Unlock New Book</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Tabs & List View -->
+<section class="mb-lg">
+<!-- Tab Navigation -->
+<div class="flex border-b border-outline-variant mb-6">
+<button class="flex-1 pb-3 font-label-bold text-label-bold text-primary border-b-2 border-secondary-container transition-colors" onclick="switchTab('businesses')">
+                    BUSINESSES
+                </button>
+<button class="flex-1 pb-3 font-label-bold text-label-bold text-on-surface-variant border-b-2 border-transparent hover:text-primary transition-colors" onclick="switchTab('landmarks')">
+                    LANDMARKS
+                </button>
+</div>
+<!-- Tab Content Container -->
+<div id="tab-content-container">
+<!-- Businesses Tab -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4" id="tab-businesses">
+<!-- Business Card 1 -->
+<div class="bg-surface-container-lowest rounded-lg border border-outline-variant shadow-level-1 p-md flex gap-4 items-center">
+<div class="w-16 h-16 rounded-md bg-surface-variant flex-shrink-0 relative overflow-hidden">
+<img class="w-full h-full object-cover absolute inset-0" data-alt="A close-up, high-quality photograph of a rustic artisanal sourdough bread loaf sitting on a wooden cutting board in a brightly lit bakery. The lighting is natural, casting soft shadows, emphasizing the tactile, textured crust. The scene feels premium and inviting, designed for a modern light-mode travel app. Dominant colors are warm browns and off-whites, with a subtle Passport Blue napkin in the corner." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDbI6fvb-owbIp6JbRudI1CkFmFzoAFu4sr78_ea17DMTupiLqGJ0EjnPcV9p2RteUDcGJXjyaC1OTbqp4UKSiNFeiKsA_Hv1vAA9_aQhhOMnwTAtb-Sb80B72Ty8VjtHYMb9r2HAve_vXVHkqkmPxX2wpiMEKV6Pbp0fKiLuaNWCanG0QE1xySrUCuesUC6X_4HsKhK8EN5eLM1aiS6n246i1DX2y7Oeg5Spq8Mp4Z3jq0ciljK7iHqA"/>
+</div>
+<div class="flex-grow">
+<div class="flex justify-between items-start">
+<h4 class="font-headline-sm text-headline-sm text-primary leading-none">Joe's Bakery</h4>
+<span class="bg-secondary-container text-on-secondary-container px-2 py-0.5 rounded text-[10px] font-bold uppercase stamp-rotate">Discount</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">Artisanal breads &amp; pastries.</p>
+<div class="flex items-center gap-1 mt-2 text-outline text-xs">
+<span class="material-symbols-outlined text-[14px]">location_on</span>
+<span>0.2 mi away • West Village</span>
+</div>
+</div>
+</div>
+<!-- Business Card 2 -->
+<div class="bg-surface-container-lowest rounded-lg border border-outline-variant shadow-level-1 p-md flex gap-4 items-center opacity-60">
+<div class="w-16 h-16 rounded-md bg-surface-variant flex-shrink-0 relative overflow-hidden">
+<div class="absolute inset-0 bg-primary/20 z-10 flex items-center justify-center">
+<span class="material-symbols-outlined text-white">check_circle</span>
+</div>
+<img class="w-full h-full object-cover absolute inset-0 grayscale" data-alt="A stylized vector icon of an open book lying flat, representing an indie bookstore. The design is minimalist and modern, utilizing clean shapes. The background is a stark white. The book covers are a deep Passport Blue, and a small bookmark sticking out is bright Stamp Orange. The overall lighting is flat and bright, suitable for a crisp light-mode UI aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBpi-Vwa-9MRSdH5pRgzm5t1zwMYCyCTrnZEcnj0fhhEyhBUEpldFGwAfQR_5C0AGO1Qam_3Y-vd3RlQBI2I4UD7cUTFUYklsaotEbewpiH040-Ny5m2Peb1dZMm9aICtopZIB0HOGCafdU1HI2h0jdSCnQhWrgh2mYz61DX3m51E833gsErVCuoX5VP2tbAd9p5iRoEpa73yXpeVbkuh7xHWuK4L5H8dHwhbmgrdy4_CFtx96L5Sjc7A"/>
+</div>
+<div class="flex-grow">
+<div class="flex justify-between items-start">
+<h4 class="font-headline-sm text-headline-sm text-primary leading-none line-through">Strand Books</h4>
+<span class="text-secondary text-xs font-bold uppercase stamp-rotate border border-secondary px-1 rounded transform">Stamped</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">18 miles of books.</p>
+<div class="flex items-center gap-1 mt-2 text-outline text-xs">
+<span class="material-symbols-outlined text-[14px]">location_on</span>
+<span>1.5 mi away • East Village</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Landmarks Tab (Hidden by default) -->
+<div class="hidden grid grid-cols-1 md:grid-cols-2 gap-4" id="tab-landmarks">
+<!-- Landmark Card 1 -->
+<div class="bg-surface-container-lowest rounded-lg border border-outline-variant shadow-level-1 overflow-hidden">
+<div class="h-32 w-full bg-surface-variant relative">
+<img class="w-full h-full object-cover absolute inset-0" data-alt="A wide, sweeping photograph of Central Park's Bethesda Terrace on a sunny day. The scene is bright and airy, capturing the intricate stonework and the lush green trees in the background. The lighting is high-key, creating a clean, modern travel editorial look. The color palette is natural but slightly desaturated, with off-white stonework, deep green foliage, and a clear blue sky that echoes the brand's Passport Blue." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAT-RAFVFYNpNf899wbjb7xR2dTN2CMq5tcxat7P-GlfKlW0HpQRo57IzQLbt6uI__Z9ceksE0lRhij-0TyaCY4Q8xTYA2cDWO806nsNCp0Reb5M6WpN_f6VEhpTtisKDOr_AJ1YvjxeJirF0-VNmxmIGpYraw6tKK0Lm4vBIl5IaqebgZdyV5AtuPDEwBTY7NRwmLEKqSwbSZpvJtA8kFwSnPmTpS7BlqpLqEuiK5FIj_3-RieTDc10g"/>
+<!-- Floating Action / Badge -->
+<div class="absolute top-2 right-2 bg-primary text-on-primary px-2 py-1 rounded font-label-bold text-label-bold shadow-level-2">
+                                +50 PTS
+                            </div>
+</div>
+<div class="p-md">
+<h4 class="font-headline-sm text-headline-sm text-primary">Bethesda Terrace</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">Central Park's architectural heart.</p>
+<button class="mt-4 w-full bg-secondary-container text-on-secondary font-label-md text-label-md py-2 rounded-lg hover:opacity-90 transition-opacity flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-[18px]">place</span>
+                                Claim Stamp Here
+                            </button>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- BottomNavBar (Mobile only) -->
+<!-- Applying JSON styling mandates strictly -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 pb-4 pt-2 shadow-[0_-2px_10px_rgba(0,0,0,0.05)] bg-surface dark:bg-surface-container rounded-t-xl shadow-lg md:hidden">
+<!-- Home (Active state because intent is Dashboard/Main) -->
+<a class="flex flex-col items-center justify-center bg-secondary-container dark:bg-secondary text-on-secondary-container dark:text-on-secondary rounded-xl px-4 py-1 hover:bg-surface-container-low dark:hover:bg-surface-container-high active:scale-90 transition-all duration-200" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">home</span>
+<span class="font-label-md text-label-md mt-1">Home</span>
+</a>
+<!-- Explore (Inactive) -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-surface-variant px-4 py-1 hover:bg-surface-container-low dark:hover:bg-surface-container-high active:scale-90 transition-all duration-200" href="#">
+<span class="material-symbols-outlined">explore</span>
+<span class="font-label-md text-label-md mt-1">Explore</span>
+</a>
+<!-- Ranks (Inactive) -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-surface-variant px-4 py-1 hover:bg-surface-container-low dark:hover:bg-surface-container-high active:scale-90 transition-all duration-200" href="#">
+<span class="material-symbols-outlined">leaderboard</span>
+<span class="font-label-md text-label-md mt-1">Ranks</span>
+</a>
+<!-- Profile (Inactive) -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-surface-variant px-4 py-1 hover:bg-surface-container-low dark:hover:bg-surface-container-high active:scale-90 transition-all duration-200" href="#">
+<span class="material-symbols-outlined">person</span>
+<span class="font-label-md text-label-md mt-1">Profile</span>
+</a>
+</nav>
+<!-- Simple Tab Logic -->
+<script>
+        function switchTab(tabId) {
+            const tabs = ['businesses', 'landmarks'];
+            const buttons = document.querySelectorAll('button[onclick^="switchTab"]');
+            
+            tabs.forEach((id, index) => {
+                const content = document.getElementById(`tab-${id}`);
+                const button = buttons[index];
+                
+                if (id === tabId) {
+                    content.classList.remove('hidden');
+                    button.classList.remove('text-on-surface-variant', 'border-transparent');
+                    button.classList.add('text-primary', 'border-secondary-container');
+                } else {
+                    content.classList.add('hidden');
+                    button.classList.add('text-on-surface-variant', 'border-transparent');
+                    button.classList.remove('text-primary', 'border-secondary-container');
+                }
+            });
+        }
+    </script>
+</body></html>

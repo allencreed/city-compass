@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>City Compass — Venue QR codes</title>
+<style>
+  body { margin: 0; min-height: 100vh; background: #0f172a; color: #e2e8f0;
+         font-family: -apple-system, "Segoe UI", Roboto, sans-serif; padding: 24px; }
+  header { text-align: center; margin-bottom: 24px; }
+  h1 { font-size: 22px; margin: 0 0 6px; }
+  p  { color: #94a3b8; font-size: 13px; margin: 4px 0; }
+  code { background: #1e293b; padding: 2px 8px; border-radius: 6px; color: #7dd3fc; font-size: 13px; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 16px; max-width: 1000px; margin: 0 auto; }
+  .card { background: #ffffff; border-radius: 12px; padding: 16px; text-align: center; border: 2px solid transparent; }
+  .card:hover { border-color: #ff6b35; }
+  .card h2 { font-size: 14px; color: #1a2b48; margin: 0 0 2px; }
+  .card .id { font-size: 11px; color: #94a3b8; margin-bottom: 10px; font-family: ui-monospace, monospace; }
+  .card canvas { display: block; margin: 0 auto; }
+  .card .emoji { font-size: 20px; }
+  .fail { display: none; color: #f87171; }
+</style>
+</head>
+<body>
+  <header>
+    <h1>City Compass 🧭 — Venue QR codes</h1>
+    <p><b>How to test with one phone:</b> 1) Open a venue in the app and tap <b>Scan register QR to stamp</b>.
+       2) Point your camera at that venue's code below. 3) The app stamps your passport.</p>
+    <p><b>No scanner button?</b> Fully close Expo Go (swipe it away) and reopen the project so it reloads the latest code.</p>
+    <p class="fail" id="fail">QR library failed to load — check your connection and reload.</p>
+  </header>
+  <div class="grid" id="grid"></div>
+
+  <script src="https://cdn.jsdelivr.net/npm/qrcode/build/qrcode.min.js"></script>
+  <script>
+    const PREFIX = 'CITYCOMPASS:STAMP:';
+    const venues = [
+      ['sf-001', 'Blue Bottle Coffee', '☕'],
+      ['sf-002', 'Tartine Bakery', '☕'],
+      ['sf-003', 'Sightglass Coffee', '☕'],
+      ['sf-004', 'Boba Guys', '☕'],
+      ['sf-005', 'La Taqueria', '🍽️'],
+      ['sf-006', 'Burma Superstar', '🍽️'],
+      ['sf-007', 'State Bird Provisions', '🍽️'],
+      ['sf-008', 'Zeitgeist', '🍻'],
+      ['sf-009', 'The Emporium', '🍻'],
+      ['sf-010', 'The Buena Vista', '🍻'],
+      ['sf-011', 'City Lights Books', '🛍️'],
+      ['sf-012', 'Amoeba Music', '🛍️'],
+      ['sf-013', 'Ferry Building Marketplace', '🏛️'],
+      ['sf-014', 'Salesforce Park', '🏛️'],
+      ['sf-015', 'Alamo Square', '🏛️'],
+    ];
+    const grid = document.getElementById('grid');
+    venues.forEach(([id, name, emoji]) => {
+      const card = document.createElement('div');
+      card.className = 'card';
+      card.innerHTML = '<div class="emoji">' + emoji + '</div>' +
+        '<h2>' + name + '</h2>' +
+        '<div class="id">' + id + '</div>' +
+        '<canvas></canvas>';
+      grid.appendChild(card);
+      const canvas = card.querySelector('canvas');
+      if (typeof QRCode !== 'undefined') {
+        QRCode.toCanvas(canvas, PREFIX + id, { width: 170, margin: 1, errorCorrectionLevel: 'M' }, (err) => {
+          if (err) document.getElementById('fail').style.display = 'block';
+        });
+      } else {
+        document.getElementById('fail').style.display = 'block';
+      }
+    });
+  </script>
+</body>
+</html>
